@@ -1,4 +1,5 @@
 # Uncomment the imports before you add the code
+from django.contrib import admin
 from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
@@ -8,10 +9,11 @@ from django.views.generic import TemplateView
 app_name = 'djangoapp'
 urlpatterns = [
     # # path for registration
+    path('admin/', admin.site.urls),
 
     # path for login
-    path(route='login', view=views.login_user, name='login'),
-    path('login/', TemplateView.as_view(template_name="index.html")),
+    #path('login/', TemplateView.as_view(template_name="index.html")),
+    path('login/', views.login_user, name='login'),
 
 
     # path for dealer reviews view
